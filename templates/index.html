@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Companies</h2>
+  <ul>
+  {% for c in companies %}
+    <li>{{ c.name }} - <a href="/companies/{{c.id}}/import/accounts">Import Accounts</a> | <a href="/companies/{{c.id}}/import/journal">Import Journal</a> | <a href="/companies/{{c.id}}/reports/trial_balance">Trial Balance</a></li>
+  {% endfor %}
+  </ul>
+  <h3>Create Company</h3>
+  <form action="/companies/create" method="post">
+    <input name="name" placeholder="Company name">
+    <button type="submit">Create</button>
+  </form>
+{% endblock %}
